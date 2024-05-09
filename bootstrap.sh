@@ -36,7 +36,7 @@ clear
 ubversion="$(cat /etc/issue | awk '{print $2}')"
 if [ "$ExistingSystem" = "0" ]  # Only if this is not an existing installation
 then
-  if [[ ! "$ubversion" = "20.04"* ]] || [[ ! "$(which vi)" = "" ]] # If the selected version of ubuntu is not what we want or if the main version has been installed instead of minimal
+  if [[ ! "$ubversion" = "20.04"* ]] # If the selected version of ubuntu is not what we want
   then
   clear
   dialog --colors --msgbox "       \Zr Developed by the xDrip team \Zn\n\n\
@@ -47,7 +47,6 @@ The Ubuntu version on the virtual machine is incorrect.  You need to delete the 
   sudo apt-get install -y  git python gcc g++ make
   sudo apt-get -y install netcat
 fi
-
 if [ ! -s /xDrip ]
 then
 sudo mkdir /xDrip
